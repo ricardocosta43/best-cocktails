@@ -1,21 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useHistory } from "react-router-dom";
 
 function App() {
+  const history = useHistory();
+
+  function categories() {
+    return history.push("/categories");
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <img src={"/assets/cocktail.jpg"} className="App-logo" alt="logo" />
+        <h1>Clique abaixo e conheça nossas categorias de dinks.</h1>
+        <br></br>
         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          className="btn btn-primary"
+          href="javascript:void(0)"
+          onClick={() => categories()}
         >
-          Learn React
+          Categotias
         </a>
       </header>
     </div>
