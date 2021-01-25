@@ -5,11 +5,11 @@ import {
     FETCH_DRINKS_DETAIL_FAILURE
   } from './DrinksDetailTypes'
 
-export const getDrinks = (drink) => {
+export const getDrinksDetail = (drink) => {
   return (dispatch) => {
     dispatch(fetchDrinksDetailRequest());
     axios
-      .get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s==${drink}`)
+      .get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drink}`)
       .then((response) => {
         const drinksDetail = response.data;
         dispatch(fetchDrinksDetailSuccess(drinksDetail));

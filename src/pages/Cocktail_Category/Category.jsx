@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import { getCategories } from "../../Store/Categories/Categories.action";
+import "../../Loading.css";
 
 const Categories = ({ categoriesData, getCategories }) => {
   const history = useHistory();
@@ -12,18 +13,23 @@ const Categories = ({ categoriesData, getCategories }) => {
     history.push("/");
   }
 
+  function drinkPage(category) {
+    //category = category.replace(" ","_");
+    history.push("/drinks/" + category);
+  }
+
   useEffect(() => {
     getCategories();
   }, []);
 
   return categoriesData.loading ? (
     <ReactLoading
-          type={"spin"}
-          color={"#0F4C81"}
-          height={"10%"}
-          width={"10%"}
-          className="loading"
-        />
+      type={"spin"}
+      color={"#0F4C81"}
+      height={"10%"}
+      width={"10%"}
+      className="loading"
+    />
   ) : categoriesData.error ? (
     <h2>{categoriesData.error}</h2>
   ) : (
@@ -37,30 +43,42 @@ const Categories = ({ categoriesData, getCategories }) => {
         role="button"
         onClick={() => back()}
       >
-        <FontAwesomeIcon icon="arrow-left" /> Voltar
+        <FontAwesomeIcon icon="arrow-left" /> Back
       </a>
       <br />
       <br />
+      <h1>Drinks Categories</h1>
+      <br/>
       <div>
         <div className="row">
-          {categoriesData &&
-            categoriesData.categories.drinks &&
-            categoriesData.categories.drinks.map((category) => (
-              <div className="col-md-3">
-                <div className="card">
-                  <img src="..." className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title">{category["strCategory"]}</h5>
-                    <p className="card-text">
-                      Clique para ver os drinks desta categoria.
-                    </p>
-                    <a href="javascript:void(0)" className="btn btn-primary">
-                      Drinks
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>View</th>
+              </tr>
+            </thead>
+            <tbody>
+              {categoriesData &&
+                categoriesData.categories.drinks &&
+                categoriesData.categories.drinks.map((category) => (
+                  <tr key={category["strCategory"]}>
+                    <td>{category["strCategory"]}</td>
+                    <td>
+                      <a
+                        name=""
+                        id=""
+                        className="center-btn"
+                        href="javascript:void(0)"
+                        onClick={() => drinkPage(category["strCategory"])}
+                      >
+                        <FontAwesomeIcon icon="search" />
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
