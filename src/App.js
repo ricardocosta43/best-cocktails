@@ -12,7 +12,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" />
+        <br></br>
         <h1>Click below and see our categories of drinks.</h1>
         <br></br>
         <button 
