@@ -22,7 +22,7 @@ const Drinks = ({ drinksData, getDrinks }) => {
 
   useEffect(() => {
     getDrinks();
-  }, []);
+  }, [getDrinks]);
 
   return drinksData.loading ? (
     <ReactLoading
@@ -37,16 +37,14 @@ const Drinks = ({ drinksData, getDrinks }) => {
   ) : (
     <div className="container">
       <br></br>
-      <a
+      <button 
         name=""
         id="btn-voltar"
         className="btn btn-secondary"
-        href="javascript:void(0)"
-        role="button"
         onClick={() => back()}
       >
         <FontAwesomeIcon icon="arrow-left" /> Back
-      </a>
+      </button>
       <br />
       <br />
       <h1>{propsPage.match.params.category}</h1>
@@ -68,13 +66,12 @@ const Drinks = ({ drinksData, getDrinks }) => {
                     <p className="card-text">
                       Click to see the details of this drink.
                     </p>
-                    <a
-                      href="javascript:void(0)"
+                    <button
                       onClick={() => drinkDetailPage(drink["idDrink"])}
                       className="btn btn-primary"
                     >
                       Drinks
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

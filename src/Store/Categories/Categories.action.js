@@ -11,7 +11,6 @@ export const getCategories = () => {
     axios
       .get("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list")
       .then((response) => {
-        // response.data is the categories
         const categories = response.data;
         dispatch(fetchCategoriesSuccess(categories));
       })

@@ -15,7 +15,7 @@ const DrinksDetail = ({ drinksDetailData, getDrinksDetail }) => {
 
   useEffect(() => {
     getDrinksDetail();
-  }, []);
+  }, [getDrinksDetail]);
 
   return drinksDetailData.loading ? (
     <ReactLoading
@@ -30,16 +30,14 @@ const DrinksDetail = ({ drinksDetailData, getDrinksDetail }) => {
   ) : (
     <div className="container">
       <br></br>
-      <a
+      <button
         name=""
         id="btn-voltar"
         className="btn btn-secondary"
-        href="javascript:void(0)"
-        role="button"
         onClick={() => back()}
       >
         <FontAwesomeIcon icon="arrow-left" /> Back
-      </a>
+      </button>
       <br />
       <br />
       <div>

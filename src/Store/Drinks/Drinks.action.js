@@ -6,15 +6,12 @@ import {
   } from './DrinksTypes'
 
 export const getDrinks = (category) => {
-  console.log(category);
   return (dispatch) => {
     dispatch(fetchDrinksRequest());
     axios
       .get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`)
       .then((response) => {
-        console.log(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`);
         const drinks = response.data;
-        console.log(drinks);
         dispatch(fetchDrinksSuccess(drinks));
       })
       .catch((error) => {

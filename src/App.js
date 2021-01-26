@@ -15,13 +15,12 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Click below and see our categories of dinks.</h1>
         <br></br>
-        <a
+        <button 
           className="btn btn-primary"
-          href="javascript:void(0)"
           onClick={() => categories()}
         >
           Categotias
-        </a>
+        </button>
       </header>
     </div>
   );

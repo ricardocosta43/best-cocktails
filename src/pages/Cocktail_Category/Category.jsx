@@ -20,7 +20,7 @@ const Categories = ({ categoriesData, getCategories }) => {
 
   useEffect(() => {
     getCategories();
-  }, []);
+  }, [getCategories]);
 
   return categoriesData.loading ? (
     <ReactLoading
@@ -35,16 +35,12 @@ const Categories = ({ categoriesData, getCategories }) => {
   ) : (
     <div className="container">
       <br></br>
-      <a
-        name=""
-        id="btn-voltar"
+      <button 
         className="btn btn-secondary"
-        href="javascript:void(0)"
-        role="button"
         onClick={() => back()}
       >
         <FontAwesomeIcon icon="arrow-left" /> Back
-      </a>
+      </button >
       <br />
       <br />
       <h1>Drinks Categories</h1>
@@ -65,15 +61,12 @@ const Categories = ({ categoriesData, getCategories }) => {
                   <tr key={category["strCategory"]}>
                     <td>{category["strCategory"]}</td>
                     <td>
-                      <a
-                        name=""
-                        id=""
-                        className="center-btn"
-                        href="javascript:void(0)"
+                      <button
+                        className="btn btn-link"
                         onClick={() => drinkPage(category["strCategory"])}
                       >
                         <FontAwesomeIcon icon="search" />
-                      </a>
+                      </button>
                     </td>
                   </tr>
                 ))}
