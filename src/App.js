@@ -19,7 +19,7 @@ function App() {
           className="btn btn-primary"
           onClick={() => categories()}
         >
-          Categorias
+          Categories
         </button>
       </header>
     </div>
