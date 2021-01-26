@@ -12,14 +12,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Click below and see our categories of dinks.</h1>
+        <img src={logo} alt="logo" />
+        <h1>Click below and see our categories of drinks.</h1>
         <br></br>
         <button 
           className="btn btn-primary"
           onClick={() => categories()}
         >
-          Categotias
+          Categorias
         </button>
       </header>
     </div>

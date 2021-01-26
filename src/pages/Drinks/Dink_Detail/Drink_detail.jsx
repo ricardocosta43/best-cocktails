@@ -44,7 +44,7 @@ const DrinksDetail = ({ drinksDetailData, getDrinksDetail }) => {
         {drinksDetailData &&
           drinksDetailData.drinksDetails &&
           drinksDetailData.drinksDetails.drinks.map((drink) => (
-            <div className="row justify-content-center">
+            <div className="row justify-content-center" key={drink["idDrink"]}>
               <div className="col-md-6">
                 <img
                   src={drink["strDrinkThumb"]}
